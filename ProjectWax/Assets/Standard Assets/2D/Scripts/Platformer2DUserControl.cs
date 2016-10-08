@@ -10,6 +10,7 @@ namespace UnityStandardAssets._2D
         private PlatformerCharacter2D m_Character;
         private bool m_Jump;
         private bool m_Burn;
+        private bool m_Dash;
 
 
         private void Awake()
@@ -29,6 +30,10 @@ namespace UnityStandardAssets._2D
             {
                 m_Burn = CrossPlatformInputManager.GetButton("Fire1"); // Change to get down if on press is desired rather than continuous
             }
+            if (!m_Dash)
+            {
+                m_Dash = CrossPlatformInputManager.GetButtonDown("Fire2"); // Get single press of dash
+            }
         }
 
 
@@ -38,9 +43,10 @@ namespace UnityStandardAssets._2D
             //bool crouch = Input.GetKey(KeyCode.LeftControl);
             float h = CrossPlatformInputManager.GetAxis("Horizontal");
             // Pass all parameters to the character control script.
-            m_Character.HandleInput(h, /*crouch,*/ m_Jump, m_Burn);
+            m_Character.HandleInput(h, /*crouch,*/ m_Jump, m_Burn, m_Dash);
             m_Burn = false;
             m_Jump = false;
+            m_Dash = false;
         }
     }
 }

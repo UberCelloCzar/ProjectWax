@@ -9,6 +9,9 @@ namespace UnityStandardAssets._2D
         [SerializeField] private float m_JumpForce = 40f;                  // Amount of force added when the player jumps.
         [SerializeField] private float m_ContinuedJumpForce = 10f;          // Amount of force added until cap while long jumping
         [SerializeField] private int m_JumpCap = 60;                       // Cap on the total force-time of a long jump
+        [SerializeField] private float m_DashSpeed = 20f;                       // Dash speed
+        [SerializeField] private int m_DashTime = 20;                        // Time over which dash is applied
+        [SerializeField] private int m_DashCooldown = 120;                    // Time after dash until it is available again
         //[Range(0, 1)] [SerializeField] private float m_CrouchSpeed = .36f;  // Amount of maxSpeed applied to crouching movement. 1 = 100%
         [SerializeField] private bool m_AirControl = false;                 // Whether or not a player can steer while jumping;
         [SerializeField] private LayerMask m_WhatIsGround;                  // A mask determining what is ground to the character
@@ -23,8 +26,12 @@ namespace UnityStandardAssets._2D
         private bool m_FacingRight = true;  // For determining which way the player is currently facing.
 
         private int m_JumpCycles = 0; // Total cycles spent in the air
-        public bool m_Burn; // Burn var with accessors
+        private int m_DashCycles = 0; // Total cycles spent dashing, and then total cycles on dash cooldown
+        private float m_DashMove = 0f; // Initial direction of dash
+        private bool m_Burn; // Burn var with accessors
+        private bool m_Dash; // Dash var with accessors
         public bool Burn { get { return m_Burn; } set { m_Burn = value; } }
+        public bool Dash { get { return m_Dash; } set { m_Dash = value; } }
 
     private void Awake()
         {
@@ -55,9 +62,11 @@ namespace UnityStandardAssets._2D
         }
 
 
-        public void HandleInput(float move, /*bool crouch,*/ bool jump, bool burn)
+        public void HandleInput(float move, /*bool crouch,*/ bool jump, bool burn, bool dash)
         {
             m_Burn = burn; // Take burn
+            if (!m_Dash && m_DashCycles == 0) m_Dash = dash; // Take dash when not already dashing and not on cooldown
+            else if (!m_Dash && m_DashCycles > 0) m_DashCycles--; // Or keep going on cooldown
             // If crouching, check to see if the character can stand up
             //if (!crouch && m_Anim.GetBool("Crouch"))
             //{
@@ -77,11 +86,30 @@ namespace UnityStandardAssets._2D
                 // Reduce the speed if crouching by the crouchSpeed multiplier
                 //move = (crouch ? move*m_CrouchSpeed : move);
 
-                // The Speed animator parameter is set to the absolute value of the horizontal input.
-                m_Anim.SetFloat("Speed", Mathf.Abs(move));
+                if (!m_Dash)
+                {
+                    // The Speed animator parameter is set to the absolute value of the horizontal input.
+                    m_Anim.SetFloat("Speed", Mathf.Abs(move));
 
-                // Move the character
-                m_Rigidbody2D.velocity = new Vector2(move*m_MaxSpeed, m_Rigidbody2D.velocity.y);
+                    // Move the character
+                    m_Rigidbody2D.velocity = new Vector2(move * m_MaxSpeed, m_Rigidbody2D.velocity.y);
+                }
+                else
+                {
+                    if (m_DashCycles == 0) m_DashMove = move; // Only take direction once
+                    m_Anim.SetFloat("Speed", Mathf.Abs(m_DashMove)); // Sub in dash animation here
+                    this.gameObject.GetComponent<SpriteRenderer>().color = Color.blue;
+
+                    m_Rigidbody2D.velocity = new Vector2(m_DashMove * m_DashSpeed, m_Rigidbody2D.velocity.y); // Move according to dash rules
+
+                    if (m_DashCycles >= m_DashTime) // Reset if dash is over
+                    {
+                        m_DashCycles = m_DashCooldown; // Reuse cycle counter for cooldown
+                        m_Dash = false;
+                        m_DashMove = 0f;
+                    }
+                    else m_DashCycles++; // Or keep going if it's not
+                }
 
                 // If the input is moving the player right and the player is facing left...
                 if (move > 0 && !m_FacingRight)
@@ -94,7 +122,7 @@ namespace UnityStandardAssets._2D
                 {
                     // ... flip the player.
                     Flip();
-                }
+                }   
             }
             // If the player should jump...
             if (jump && m_Grounded && m_Anim.GetBool("Ground"))
@@ -116,7 +144,8 @@ namespace UnityStandardAssets._2D
                 // Play burn animation
                 this.gameObject.GetComponent<SpriteRenderer>().color = Color.red; // Temporary placeholders for animation
             }
-            else
+
+            if (!m_Burn && !m_Dash)
             {
                 this.gameObject.GetComponent<SpriteRenderer>().color = Color.white;
             }

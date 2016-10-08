@@ -61,6 +61,9 @@
     <Reference Include="UnityEditor">
       <HintPath>Library\UnityAssemblies\UnityEditor.dll</HintPath>
     </Reference>
+    <Reference Include="pseudoSinCos">
+      <HintPath>Assets\2DLightAsset\Scripts\Helpers\pseudoSinCos.dll</HintPath>
+    </Reference>
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="ProjectWax.CSharp.Plugins.csproj">
@@ -69,9 +72,24 @@
     </ProjectReference>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Assets\2DLightAsset\Examples\RigidBodyInterpolationSolution\FollowLight2d.cs" />
+    <Compile Include="Assets\2DLightAsset\Scripts\2DLight\DynamicLight.cs" />
+    <Compile Include="Assets\2DLightAsset\Scripts\Helpers\interface_touch.cs" />
+    <Compile Include="Assets\2DLightAsset\Scripts\Helpers\interface_touch2.cs" />
+    <Compile Include="Assets\2DLightAsset\Scripts\rotate.cs" />
+    <Compile Include="Assets\RopeCreator2D\Scripts\Rope2DLineRendSetPoints.cs" />
+    <Compile Include="Assets\RopeCreator2D\Scripts\Support Scripts\GizmoScripts\Rope2DCircleGizmo.cs" />
+    <Compile Include="Assets\RopeCreator2D\Scripts\Support Scripts\GizmoScripts\Rope2DEndpointsGizmos.cs" />
+    <Compile Include="Assets\RopeCreator2D\Scripts\Support Scripts\Rope2DMouseCutter.cs" />
+    <Compile Include="Assets\RopeCreator2D\Scripts\Support Scripts\Rope2DMouseDrag.cs" />
+    <Compile Include="Assets\RopeCreator2D\Scripts\Support Scripts\Rope2DTear.cs" />
     <Compile Include="Assets\Scripts\WoodObject.cs" />
   </ItemGroup>
   <ItemGroup>
+    <None Include="Assets\2DLightAsset\Shaders\Gradient-NoTexture-Radial-SingleColor-ToTransparent-RegularUV-AlphaBlend.shader" />
+    <None Include="Assets\2DLightAsset\Shaders\Gradient-ZFighting.shader" />
+    <None Include="Assets\RopeCreator2D\Documentation\Readme.txt" />
+    <None Include="Assets\RopeCreator2D\Documentation\UpdateHistory.txt" />
     <None Include="Assets\Standard Assets\Cameras\CameraGuidelines.txt" />
     <None Include="Assets\Standard Assets\CrossPlatformInput\CrossPlatformInputGuidelines.txt" />
     <None Include="Assets\Standard Assets\Effects\GlassRefraction\Shaders\GlassStainedBumpDistort.shader" />
