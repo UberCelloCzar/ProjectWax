@@ -19,15 +19,16 @@ namespace UnityStandardAssets._2D
         private Transform m_GroundCheck;    // A position marking where to check if the player is grounded.
         const float k_GroundedRadius = .2f; // Radius of the overlap circle to determine if grounded
         private bool m_Grounded;            // Whether or not the player is grounded.
-        private Transform m_CeilingCheck;   // A position marking where to check for ceilings
-        const float k_CeilingRadius = .01f; // Radius of the overlap circle to determine if the player can stand up
-        private Animator m_Anim;            // Reference to the player's animator component.
+        //private Transform m_CeilingCheck;   // A position marking where to check for ceilings
+        //const float k_CeilingRadius = .01f; // Radius of the overlap circle to determine if the player can stand up
+        //private Animator m_Anim;            // Reference to the player's animator component.
         private Rigidbody2D m_Rigidbody2D;
         private bool m_FacingRight = true;  // For determining which way the player is currently facing.
 
         private int m_JumpCycles = 0; // Total cycles spent in the air
         private int m_DashCycles = 0; // Total cycles spent dashing, and then total cycles on dash cooldown
         private float m_DashMove = 0f; // Initial direction of dash
+        //private float m_DistToGround = 0f; // Distance from pivot to ground
         private bool m_Burn; // Burn var with accessors
         private bool m_Dash; // Dash var with accessors
         public bool Burn { get { return m_Burn; } set { m_Burn = value; } }
@@ -37,8 +38,8 @@ namespace UnityStandardAssets._2D
         {
             // Setting up references.
             m_GroundCheck = transform.Find("GroundCheck");
-            m_CeilingCheck = transform.Find("CeilingCheck");
-            m_Anim = GetComponent<Animator>();
+            //m_CeilingCheck = transform.Find("CeilingCheck");
+            //m_Anim = GetComponent<Animator>();
             m_Rigidbody2D = GetComponent<Rigidbody2D>();
         }
 
@@ -55,10 +56,11 @@ namespace UnityStandardAssets._2D
                 if (colliders[i].gameObject != gameObject)
                     m_Grounded = true;
             }
-            m_Anim.SetBool("Ground", m_Grounded);
+
+            //m_Anim.SetBool("Ground", m_Grounded);
 
             // Set the vertical animation
-            m_Anim.SetFloat("vSpeed", m_Rigidbody2D.velocity.y);
+            //m_Anim.SetFloat("vSpeed", m_Rigidbody2D.velocity.y);
         }
 
 
@@ -89,7 +91,7 @@ namespace UnityStandardAssets._2D
                 if (!m_Dash)
                 {
                     // The Speed animator parameter is set to the absolute value of the horizontal input.
-                    m_Anim.SetFloat("Speed", Mathf.Abs(move));
+                    //m_Anim.SetFloat("Speed", Mathf.Abs(move));
 
                     // Move the character
                     m_Rigidbody2D.velocity = new Vector2(move * m_MaxSpeed, m_Rigidbody2D.velocity.y);
@@ -97,7 +99,7 @@ namespace UnityStandardAssets._2D
                 else
                 {
                     if (m_DashCycles == 0) m_DashMove = move; // Only take direction once
-                    m_Anim.SetFloat("Speed", Mathf.Abs(m_DashMove)); // Sub in dash animation here
+                    //m_Anim.SetFloat("Speed", Mathf.Abs(m_DashMove)); // Sub in dash animation here
                     this.gameObject.GetComponent<SpriteRenderer>().color = Color.blue;
 
                     m_Rigidbody2D.velocity = new Vector2(m_DashMove * m_DashSpeed, m_Rigidbody2D.velocity.y); // Move according to dash rules
@@ -125,12 +127,12 @@ namespace UnityStandardAssets._2D
                 }   
             }
             // If the player should jump...
-            if (jump && m_Grounded && m_Anim.GetBool("Ground"))
+            if (jump && m_Grounded /*&& m_Anim.GetBool("Ground")*/)
             {
                 // Add a vertical force to the player.
                 m_JumpCycles = 0;
                 m_Grounded = false;
-                m_Anim.SetBool("Ground", false);
+                //m_Anim.SetBool("Ground", false);
                 m_Rigidbody2D.AddForce(new Vector2(0f, m_JumpForce));
             }
             else if (jump && m_JumpCycles < m_JumpCap) // Long jump

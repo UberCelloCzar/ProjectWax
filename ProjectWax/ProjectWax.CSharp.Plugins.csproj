@@ -175,8 +175,6 @@
   <ItemGroup>
     <None Include="Assets\2DLightAsset\Shaders\Gradient-NoTexture-Radial-SingleColor-ToTransparent-RegularUV-AlphaBlend.shader" />
     <None Include="Assets\2DLightAsset\Shaders\Gradient-ZFighting.shader" />
-    <None Include="Assets\RopeCreator2D\Documentation\Readme.txt" />
-    <None Include="Assets\RopeCreator2D\Documentation\UpdateHistory.txt" />
     <None Include="Assets\Standard Assets\Cameras\CameraGuidelines.txt" />
     <None Include="Assets\Standard Assets\CrossPlatformInput\CrossPlatformInputGuidelines.txt" />
     <None Include="Assets\Standard Assets\Effects\GlassRefraction\Shaders\GlassStainedBumpDistort.shader" />

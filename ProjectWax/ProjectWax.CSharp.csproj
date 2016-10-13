@@ -77,19 +77,13 @@
     <Compile Include="Assets\2DLightAsset\Scripts\Helpers\interface_touch.cs" />
     <Compile Include="Assets\2DLightAsset\Scripts\Helpers\interface_touch2.cs" />
     <Compile Include="Assets\2DLightAsset\Scripts\rotate.cs" />
-    <Compile Include="Assets\RopeCreator2D\Scripts\Rope2DLineRendSetPoints.cs" />
-    <Compile Include="Assets\RopeCreator2D\Scripts\Support Scripts\GizmoScripts\Rope2DCircleGizmo.cs" />
-    <Compile Include="Assets\RopeCreator2D\Scripts\Support Scripts\GizmoScripts\Rope2DEndpointsGizmos.cs" />
-    <Compile Include="Assets\RopeCreator2D\Scripts\Support Scripts\Rope2DMouseCutter.cs" />
-    <Compile Include="Assets\RopeCreator2D\Scripts\Support Scripts\Rope2DMouseDrag.cs" />
-    <Compile Include="Assets\RopeCreator2D\Scripts\Support Scripts\Rope2DTear.cs" />
+    <Compile Include="Assets\Rope 2D Editor\Scripts\Rope.cs" />
+    <Compile Include="Assets\Scripts\RopeBurn.cs" />
     <Compile Include="Assets\Scripts\WoodObject.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="Assets\2DLightAsset\Shaders\Gradient-NoTexture-Radial-SingleColor-ToTransparent-RegularUV-AlphaBlend.shader" />
     <None Include="Assets\2DLightAsset\Shaders\Gradient-ZFighting.shader" />
-    <None Include="Assets\RopeCreator2D\Documentation\Readme.txt" />
-    <None Include="Assets\RopeCreator2D\Documentation\UpdateHistory.txt" />
     <None Include="Assets\Standard Assets\Cameras\CameraGuidelines.txt" />
     <None Include="Assets\Standard Assets\CrossPlatformInput\CrossPlatformInputGuidelines.txt" />
     <None Include="Assets\Standard Assets\Effects\GlassRefraction\Shaders\GlassStainedBumpDistort.shader" />

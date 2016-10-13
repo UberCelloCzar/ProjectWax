@@ -5,7 +5,7 @@ public class WoodObject : MonoBehaviour {
     private bool isBurned = false;
     [SerializeField] private UnityStandardAssets._2D.PlatformerCharacter2D charScript;
 
-    void OnTriggerEnter2D(Collider2D other) // On collision
+    void OnCollisionEnter2D(Collision2D other) // On collision
     {
         if (other.gameObject.name == "Character" && !isBurned) // Is it the player? (can be modified later to include other burning objects for chain reactions)
         {
