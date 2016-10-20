@@ -25,15 +25,18 @@ public class FireSource : MonoBehaviour {
 
         if (player.KindleCollide && !player.KindleDash && floatCycles <= floatTime) // Pull player toward center and levitate them
         {
+            player.fullStop();
             player.deactivateGravity();
-            Vector3 forceDirection = this.transform.position - player.transform.position; // Pull player in
-            player.AddImpulseForce(forceDirection.normalized * pullForce * Time.fixedDeltaTime);
+            //Vector3 forceDirection = this.transform.position - player.transform.position; // Pull player in
+            //player.AddImpulseForce(forceDirection.normalized * pullForce * Time.fixedDeltaTime);
             floatCycles++;
+            Debug.Log(floatCycles);
         }
 
         if (player.KindleCollide && floatCycles == floatTime+1)
         {
             player.reactivateGravity();
+            Debug.Log("gravity restored");
         }
     }
 
@@ -41,8 +44,12 @@ public class FireSource : MonoBehaviour {
     {
         if (other.gameObject.name == "Character") // When character hits this object, start kindle functions
         {
+            player.fullStop();
+            player.Dash = false;
+            player.KindleDash = false;
             floatCycles = 0;
             player.KindleCollide = true; // Welcome to my disgusting cross-script hack because I was too lazy to make my own platformer control script
+            player.transform.position = this.transform.position;
             Debug.Log("It's lit");
         }
     }
@@ -54,6 +61,7 @@ public class FireSource : MonoBehaviour {
             if (!player.KindleDash)
             {
                 player.reactivateGravity();
+                Debug.Log("gravity reset");
             }
             player.KindleCollide = false;
             Debug.Log("Get snuffed");
