@@ -3,8 +3,8 @@ using System.Collections;
 
 public class FireSource : MonoBehaviour {
     private UnityStandardAssets._2D.PlatformerCharacter2D player;
-    [SerializeField] private float pullForce = 20f; // Higher values make player home in faster
-    [SerializeField] private int floatTime = 50; // Number of cycles during which player is pulled towards center and antigrav'd
+    [SerializeField] private float pullForce = 100f; // Higher values make player home in faster
+    [SerializeField] private int floatTime = 120; // Number of cycles during which player is pulled towards center and antigrav'd
     private int floatCycles = 0;
  
     // Use this for initialization
@@ -15,15 +15,23 @@ public class FireSource : MonoBehaviour {
 	
 	// Update is called once per frame
 	void Update () {
- 
+
+        if (player.KindleCollide && floatCycles == Mathf.FloorToInt(floatTime / 10)) // Kill momentum once inside 
+        {
+            player.fullStop();
+            player.Dash = false;
+            player.KindleDash = false;
+        }
+
         if (player.KindleCollide && !player.KindleDash && floatCycles <= floatTime) // Pull player toward center and levitate them
         {
             player.deactivateGravity();
             Vector3 forceDirection = this.transform.position - player.transform.position; // Pull player in
             player.AddImpulseForce(forceDirection.normalized * pullForce * Time.fixedDeltaTime);
-           floatCycles++;
+            floatCycles++;
         }
-        if (floatCycles == floatTime+1)
+
+        if (player.KindleCollide && floatCycles == floatTime+1)
         {
             player.reactivateGravity();
         }
@@ -35,7 +43,7 @@ public class FireSource : MonoBehaviour {
         {
             floatCycles = 0;
             player.KindleCollide = true; // Welcome to my disgusting cross-script hack because I was too lazy to make my own platformer control script
-            //Debug.Log("It's lit");
+            Debug.Log("It's lit");
         }
     }
 
@@ -48,7 +56,7 @@ public class FireSource : MonoBehaviour {
                 player.reactivateGravity();
             }
             player.KindleCollide = false;
-            //Debug.Log("Get snuffed");
+            Debug.Log("Get snuffed");
         }
     }
 }

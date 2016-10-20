@@ -44,7 +44,7 @@ namespace UnityStandardAssets._2D
         public bool PropelCollide { get { return m_PropelCollide; } set { m_PropelCollide = value; } }
         public bool IsPropelling {  get { return m_IsPropelling; } }
         public bool KindleCollide {  get { return m_KindleCollide; } set { m_KindleCollide = value; } }
-        public bool KindleDash {  get { return m_KindleDash; } }
+        public bool KindleDash { get { return m_KindleDash; } set { m_KindleDash = value; } }
         public Vector2 Velocity {  get { return m_Rigidbody2D.velocity; } }
         private static GameObject thisInstance;
 
