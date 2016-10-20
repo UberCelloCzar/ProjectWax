@@ -34,7 +34,7 @@ public class Rope : MonoBehaviour {
     [HideInInspector]
     public bool BreakableJoints=false;
     [HideInInspector]
-    public float BreakForce = 100;
+    public float BreakForce = 10000;
 #endif
     [Range(-0.5f,0.5f)]
     public float overlapFactor;
@@ -44,6 +44,11 @@ public class Rope : MonoBehaviour {
     // Use this for initialization
     void Start () {
         childs = this.GetComponentsInChildren<RopeBurn>();
+        UnityStandardAssets._2D.PlatformerCharacter2D player = GameObject.FindGameObjectWithTag("Player").GetComponent<UnityStandardAssets._2D.PlatformerCharacter2D>();
+        for (int i = 0; i < childs.Length; i++)
+        {
+            childs[i].charScript = player; // Initialize character reference
+        }
     }
 	
 	// Update is called once per frame

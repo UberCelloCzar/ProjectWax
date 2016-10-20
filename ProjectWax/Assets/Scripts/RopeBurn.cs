@@ -4,10 +4,10 @@ using System.Collections;
 public class RopeBurn : MonoBehaviour {
     private bool isBurned = false;
     [HideInInspector] public bool isBurning = false;
-    [SerializeField] private UnityStandardAssets._2D.PlatformerCharacter2D charScript;
+    [HideInInspector] public UnityStandardAssets._2D.PlatformerCharacter2D charScript;
     [SerializeField] private float burnFor = 10;
 
-    void OnCollisionEnter2D(Collision2D other) // On collision
+    void OnTriggerEnter2D(Collider2D other) // On collision
     {
         if (other.gameObject.name == "Character" && !isBurned) // Is it the player? (can be modified later to include other burning objects for chain reactions)
         {
@@ -23,14 +23,14 @@ public class RopeBurn : MonoBehaviour {
         if (isBurning && !isBurned)
         {
             // Play burn animation etc.
-            this.gameObject.GetComponent<SpriteRenderer>().color = Color.black;
-            if (!this.GetComponentInParent<Rope>().isBurning)
+            this.transform.parent.GetComponent<SpriteRenderer>().color = Color.black;
+            if (!this.transform.parent.parent.GetComponent<Rope>().isBurning)
             {
-                this.GetComponentInParent<Rope>().isBurning = true;
-                this.GetComponentInParent<Rope>().burnUpper = int.Parse(this.gameObject.name.Split('_')[1]); // Get the num of this node by name
-                this.GetComponentInParent<Rope>().burnLower = this.GetComponentInParent<Rope>().burnUpper;
+                this.transform.parent.parent.GetComponent<Rope>().isBurning = true;
+                this.transform.parent.parent.GetComponent<Rope>().burnUpper = int.Parse(this.transform.parent.gameObject.name.Split('_')[1]); // Get the num of this node by name
+                this.transform.parent.parent.GetComponent<Rope>().burnLower = this.transform.parent.parent.GetComponent<Rope>().burnUpper;
             }
-            Destroy(this.gameObject, burnFor); // Burn up after a while
+            Destroy(this.transform.parent.gameObject, burnFor); // Burn up after a while
             isBurned = true;
         }
     }

@@ -11,6 +11,11 @@ namespace UnityStandardAssets._2D
         private bool m_Jump;
         private bool m_Burn;
         private bool m_Dash;
+        private char beforePriorPreviousLatestKey; // Nice
+        private char priorPreviousLatestKey;
+        private char previousLatestKey;
+        private char latestKey;
+
 
 
         private void Awake()
@@ -34,6 +39,39 @@ namespace UnityStandardAssets._2D
             {
                 m_Dash = CrossPlatformInputManager.GetButtonDown("Fire2"); // Get single press of dash
             }
+
+            if (CrossPlatformInputManager.GetButtonDown("Horizontal") && CrossPlatformInputManager.GetAxisRaw("Horizontal") > 0) // D, this is still cross platform, just using key chars for clarity
+            {
+                beforePriorPreviousLatestKey = priorPreviousLatestKey;
+                priorPreviousLatestKey = previousLatestKey;
+                previousLatestKey = latestKey;
+                latestKey = 'd';
+            }
+            if (CrossPlatformInputManager.GetButtonDown("Horizontal") && CrossPlatformInputManager.GetAxisRaw("Horizontal") < 0) // A, set the latest key
+            {
+                beforePriorPreviousLatestKey = priorPreviousLatestKey;
+                priorPreviousLatestKey = previousLatestKey;
+                previousLatestKey = latestKey;
+                latestKey = 'a';
+            }
+            if (CrossPlatformInputManager.GetButtonDown("Vertical") && CrossPlatformInputManager.GetAxisRaw("Vertical") > 0) // W
+            {
+                beforePriorPreviousLatestKey = priorPreviousLatestKey;
+                priorPreviousLatestKey = previousLatestKey;
+                previousLatestKey = latestKey;
+                latestKey = 'w';
+            }
+            if (CrossPlatformInputManager.GetButtonDown("Vertical") && CrossPlatformInputManager.GetAxisRaw("Vertical") < 0) // S
+            {
+                beforePriorPreviousLatestKey = priorPreviousLatestKey;
+                priorPreviousLatestKey = previousLatestKey;
+                previousLatestKey = latestKey;
+                latestKey = 's';
+            }
+
+            checkIfLatest(); // Check if latestKey is valid
+            //Debug.Log(latestKey.ToString());
+
         }
 
 
@@ -43,10 +81,46 @@ namespace UnityStandardAssets._2D
             //bool crouch = Input.GetKey(KeyCode.LeftControl);
             float h = CrossPlatformInputManager.GetAxis("Horizontal");
             // Pass all parameters to the character control script.
-            m_Character.HandleInput(h, /*crouch,*/ m_Jump, m_Burn, m_Dash);
+            m_Character.HandleInput(h, /*crouch,*/ m_Jump, m_Burn, m_Dash, latestKey);
             m_Burn = false;
             m_Jump = false;
             m_Dash = false;
+        }
+
+        private void checkIfLatest() // Runs until the latest key is either nothing or is being pressed
+        {
+            if (latestKey == 'd' && !(CrossPlatformInputManager.GetButton("Horizontal") && CrossPlatformInputManager.GetAxisRaw("Horizontal") > 0)) // D, this is still cross platform, just using key chars for clarity
+            {
+                latestKey = previousLatestKey;
+                previousLatestKey = priorPreviousLatestKey;
+                priorPreviousLatestKey = beforePriorPreviousLatestKey;
+                beforePriorPreviousLatestKey = '0';
+                checkIfLatest();
+            }
+            if (latestKey == 'a' && !(CrossPlatformInputManager.GetButton("Horizontal") && CrossPlatformInputManager.GetAxisRaw("Horizontal") < 0)) // A, set the latest key
+            {
+                latestKey = previousLatestKey;
+                previousLatestKey = priorPreviousLatestKey;
+                priorPreviousLatestKey = beforePriorPreviousLatestKey;
+                beforePriorPreviousLatestKey = '0';
+                checkIfLatest();
+            }
+            if (latestKey == 'w' && !(CrossPlatformInputManager.GetButton("Vertical") && CrossPlatformInputManager.GetAxisRaw("Vertical") > 0)) // W
+            {
+                latestKey = previousLatestKey;
+                previousLatestKey = priorPreviousLatestKey;
+                priorPreviousLatestKey = beforePriorPreviousLatestKey;
+                beforePriorPreviousLatestKey = '0';
+                checkIfLatest();
+            }
+            if (latestKey == 's' && !(CrossPlatformInputManager.GetButton("Vertical") && CrossPlatformInputManager.GetAxisRaw("Vertical") < 0)) // S
+            {
+                latestKey = previousLatestKey;
+                previousLatestKey = priorPreviousLatestKey;
+                priorPreviousLatestKey = beforePriorPreviousLatestKey;
+                beforePriorPreviousLatestKey = '0';
+                checkIfLatest();
+            }
         }
     }
 }

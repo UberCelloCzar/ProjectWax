@@ -11,6 +11,7 @@ namespace UnityStandardAssets._2D
         public float lookAheadReturnSpeed = 0.5f;
         public float lookAheadMoveThreshold = 0.1f;
         public float vertAdjust = 2f;
+        private static GameObject thisInstance;
 
         private float m_OffsetZ;
         private Vector3 m_LastTargetPosition;
@@ -23,6 +24,16 @@ namespace UnityStandardAssets._2D
             m_LastTargetPosition = target.position;
             m_OffsetZ = (transform.position - target.position).z;
             transform.parent = null;
+            DontDestroyOnLoad(this.gameObject);
+
+            if (thisInstance == null)
+            {
+                thisInstance = this.gameObject;
+            }
+            else
+            {
+                DestroyObject(this.gameObject);
+            }
         }
 
 

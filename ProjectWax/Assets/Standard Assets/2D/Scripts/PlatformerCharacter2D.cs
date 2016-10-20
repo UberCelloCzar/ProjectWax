@@ -11,10 +11,13 @@ namespace UnityStandardAssets._2D
         [SerializeField] private int m_JumpCap = 60;                       // Cap on the total force-time of a long jump
         [SerializeField] private float m_DashSpeed = 20f;                       // Dash speed
         [SerializeField] private int m_DashTime = 20;                        // Time over which dash is applied
+        [SerializeField] private float m_PropelSpeed = 50f;                       // Propel speed
+        [SerializeField] private int m_DashFloatFrames = 10;                       // Number of frames at beginning of dash immune to gravity
+        [SerializeField] private int m_PropelTime = 20;                        // Time over which propel is applied
         [SerializeField] private int m_DashCooldown = 120;                    // Time after dash until it is available again
         //[Range(0, 1)] [SerializeField] private float m_CrouchSpeed = .36f;  // Amount of maxSpeed applied to crouching movement. 1 = 100%
         [SerializeField] private bool m_AirControl = false;                 // Whether or not a player can steer while jumping;
-        [SerializeField] private LayerMask m_WhatIsGround;                  // A mask determining what is ground to the character
+        [SerializeField] private LayerMask m_WhatIsGround;                  // A mask determining what is ground to the character                         
 
         private Transform m_GroundCheck;    // A position marking where to check if the player is grounded.
         const float k_GroundedRadius = .2f; // Radius of the overlap circle to determine if grounded
@@ -24,23 +27,45 @@ namespace UnityStandardAssets._2D
         //private Animator m_Anim;            // Reference to the player's animator component.
         private Rigidbody2D m_Rigidbody2D;
         private bool m_FacingRight = true;  // For determining which way the player is currently facing.
-
+        
         private int m_JumpCycles = 0; // Total cycles spent in the air
         private int m_DashCycles = 0; // Total cycles spent dashing, and then total cycles on dash cooldown
         private float m_DashMove = 0f; // Initial direction of dash
         //private float m_DistToGround = 0f; // Distance from pivot to ground
+        private float m_DefaultGravity = 1f; // Default grav scale of rigidbody
         private bool m_Burn; // Burn var with accessors
         private bool m_Dash; // Dash var with accessors
+        private bool m_PropelCollide = false; // Propel vars with accessors
+        private bool m_IsPropelling = false;
+        private bool m_KindleCollide = false; // Kindle var with accessor
+        private bool m_KindleDash = false;
         public bool Burn { get { return m_Burn; } set { m_Burn = value; } }
         public bool Dash { get { return m_Dash; } set { m_Dash = value; } }
+        public bool PropelCollide { get { return m_PropelCollide; } set { m_PropelCollide = value; } }
+        public bool IsPropelling {  get { return m_IsPropelling; } }
+        public bool KindleCollide {  get { return m_KindleCollide; } set { m_KindleCollide = value; } }
+        public bool KindleDash {  get { return m_KindleDash; } }
+        public Vector2 Velocity {  get { return m_Rigidbody2D.velocity; } }
+        private static GameObject thisInstance;
 
-    private void Awake()
+        private void Awake()
         {
             // Setting up references.
             m_GroundCheck = transform.Find("GroundCheck");
             //m_CeilingCheck = transform.Find("CeilingCheck");
             //m_Anim = GetComponent<Animator>();
             m_Rigidbody2D = GetComponent<Rigidbody2D>();
+            m_DefaultGravity = m_Rigidbody2D.gravityScale;
+            DontDestroyOnLoad(this.gameObject);
+
+            if (thisInstance == null)
+            {
+                thisInstance = this.gameObject;
+            }
+            else
+            {
+                DestroyObject(this.gameObject);
+            }
         }
 
 
@@ -54,7 +79,9 @@ namespace UnityStandardAssets._2D
             for (int i = 0; i < colliders.Length; i++)
             {
                 if (colliders[i].gameObject != gameObject)
+                {
                     m_Grounded = true;
+                }
             }
 
             //m_Anim.SetBool("Ground", m_Grounded);
@@ -64,7 +91,7 @@ namespace UnityStandardAssets._2D
         }
 
 
-        public void HandleInput(float move, /*bool crouch,*/ bool jump, bool burn, bool dash)
+        public void HandleInput(float move, /*bool crouch,*/ bool jump, bool burn, bool dash, char latestKey)
         {
             m_Burn = burn; // Take burn
             if (!m_Dash && m_DashCycles == 0) m_Dash = dash; // Take dash when not already dashing and not on cooldown
@@ -88,6 +115,16 @@ namespace UnityStandardAssets._2D
                 // Reduce the speed if crouching by the crouchSpeed multiplier
                 //move = (crouch ? move*m_CrouchSpeed : move);
 
+                if (m_KindleCollide && m_Dash)
+                {
+                    m_KindleDash = true;
+                }
+
+                if (m_PropelCollide && m_Dash)
+                {
+                    m_IsPropelling = true;
+                }
+
                 if (!m_Dash)
                 {
                     // The Speed animator parameter is set to the absolute value of the horizontal input.
@@ -96,13 +133,108 @@ namespace UnityStandardAssets._2D
                     // Move the character
                     m_Rigidbody2D.velocity = new Vector2(move * m_MaxSpeed, m_Rigidbody2D.velocity.y);
                 }
+                else if (m_IsPropelling)
+                {
+                    m_Rigidbody2D.gravityScale = 0f;
+                    if (m_DashCycles == 0)
+                    {
+                        m_DashMove = move; // Only take direction once
+                    }
+                    //m_Anim.SetFloat("Speed", Mathf.Abs(m_DashMove)); // Sub in propel animation here
+                    this.gameObject.GetComponent<SpriteRenderer>().color = Color.magenta;
+
+                    m_Rigidbody2D.velocity = new Vector2(m_DashMove * m_PropelSpeed, 0); // Move according to dash rules
+
+                    if (m_DashCycles >= m_PropelTime) // Reset if dash is over
+                    {
+                        m_DashCycles = m_DashCooldown; // Reuse cycle counter for cooldown
+                        m_Dash = false;
+                        m_IsPropelling = false;
+                        m_DashMove = 0f;
+                        m_Rigidbody2D.gravityScale = m_DefaultGravity;
+                    }
+                    else m_DashCycles++; // Or keep going if it's not
+
+                }
+                else if (m_KindleDash)
+                {
+                    if (m_DashCycles == 0) // Dashmove in kindle: 4=left, 1=up, 2=right, 3=down, 0=no move
+                    {
+                        switch(latestKey)
+                        {
+                            case 'a':
+                                m_DashMove = 4;
+                                break;
+                            case 'w':
+                                m_DashMove = 1;
+                                break;
+                            case 'd':
+                                m_DashMove = 2;
+                                break;
+                            case 's':
+                                m_DashMove = 3;
+                                break;
+                            default:
+                                m_DashMove = 0;
+                                break;
+                        }
+                        m_Rigidbody2D.velocity = new Vector2(m_Rigidbody2D.velocity.x, 0);
+                    }
+                    //m_Anim.SetFloat("Speed", Mathf.Abs(m_DashMove)); // Sub in dash animation here
+                    this.gameObject.GetComponent<SpriteRenderer>().color = Color.blue;
+
+                    if (m_DashCycles <= m_DashFloatFrames) // Antigrav on first frames
+                    {
+                        m_Rigidbody2D.gravityScale = 0f;
+                    }
+                    else
+                    {
+                        m_Rigidbody2D.gravityScale = m_DefaultGravity;
+                    }
+
+                    switch ((int)m_DashMove)
+                    {
+                        case 4:
+                            m_Rigidbody2D.velocity = new Vector2(-1 * m_DashSpeed, m_Rigidbody2D.velocity.y);
+                            break;
+                        case 1:
+                            m_Rigidbody2D.velocity = new Vector2(0, 1 * m_DashSpeed);
+                            break;
+                        case 2:
+                            m_Rigidbody2D.velocity = new Vector2(1 * m_DashSpeed, m_Rigidbody2D.velocity.y);
+                            break;
+                        case 3:
+                            m_Rigidbody2D.velocity = new Vector2(0, -1 * m_DashSpeed);
+                            break;
+                        default:
+                            break;
+                    }
+
+                    if (m_DashCycles >= m_DashTime) // Reset if dash is over
+                    {
+                        m_DashCycles = m_DashCooldown; // Reuse cycle counter for cooldown
+                        m_Dash = false;
+                        m_KindleDash = false;
+                        m_DashMove = 0f;
+                    }
+                    else m_DashCycles++; // Or keep going if it's not
+                }
                 else
                 {
                     if (m_DashCycles == 0) m_DashMove = move; // Only take direction once
                     //m_Anim.SetFloat("Speed", Mathf.Abs(m_DashMove)); // Sub in dash animation here
                     this.gameObject.GetComponent<SpriteRenderer>().color = Color.blue;
 
-                    m_Rigidbody2D.velocity = new Vector2(m_DashMove * m_DashSpeed, m_Rigidbody2D.velocity.y); // Move according to dash rules
+                    if (m_DashCycles <= m_DashFloatFrames)
+                    {
+                        m_Rigidbody2D.gravityScale = 0f;
+                        m_Rigidbody2D.velocity = new Vector2(m_DashMove * m_DashSpeed, 0); // Move according to dash rules for antigrav frames
+                    }
+                    else
+                    {
+                        m_Rigidbody2D.gravityScale = m_DefaultGravity;
+                        m_Rigidbody2D.velocity = new Vector2(m_DashMove * m_DashSpeed, m_Rigidbody2D.velocity.y); // Move according to dash rules for end frames
+                    }
 
                     if (m_DashCycles >= m_DashTime) // Reset if dash is over
                     {
@@ -163,6 +295,31 @@ namespace UnityStandardAssets._2D
             Vector3 theScale = transform.localScale;
             theScale.x *= -1;
             transform.localScale = theScale;
+        }
+
+        public void fullStop() // Kills velocity
+        {
+            m_Rigidbody2D.velocity = new Vector2(0, 0);
+        }
+
+        public void resetDash() // Resets dash
+        {
+            if (!m_Dash) m_DashCycles = 0;
+        }
+
+        public void deactivateGravity()
+        {
+            m_Rigidbody2D.gravityScale = 0f;
+        }
+
+        public void reactivateGravity()
+        {
+            m_Rigidbody2D.gravityScale = m_DefaultGravity;
+        }
+
+        public void AddImpulseForce(Vector2 force)
+        {
+            m_Rigidbody2D.AddForce(force, ForceMode2D.Impulse);
         }
     }
 }
