@@ -39,6 +39,7 @@ namespace UnityStandardAssets._2D
         private bool m_IsPropelling = false;
         private bool m_KindleCollide = false; // Kindle var with accessor
         private bool m_KindleDash = false;
+        public bool kindleFloat = false;
         public bool Burn { get { return m_Burn; } set { m_Burn = value; } }
         public bool Dash { get { return m_Dash; } set { m_Dash = value; } }
         public bool PropelCollide { get { return m_PropelCollide; } set { m_PropelCollide = value; } }
@@ -109,6 +110,8 @@ namespace UnityStandardAssets._2D
             //// Set whether or not the character is crouching in the animator
             //m_Anim.SetBool("Crouch", crouch);
 
+            
+
             //only control the player if grounded or airControl is turned on
             if (m_Grounded || m_AirControl)
             {
@@ -130,8 +133,11 @@ namespace UnityStandardAssets._2D
                     // The Speed animator parameter is set to the absolute value of the horizontal input.
                     //m_Anim.SetFloat("Speed", Mathf.Abs(move));
 
-                    // Move the character
-                    m_Rigidbody2D.velocity = new Vector2(move * m_MaxSpeed, m_Rigidbody2D.velocity.y);
+                    if (kindleFloat == false) // if the player isn't floating
+                    {
+                        // Move the character
+                        m_Rigidbody2D.velocity = new Vector2(move * m_MaxSpeed, m_Rigidbody2D.velocity.y);
+                    }
                 }
                 else if (m_IsPropelling)
                 {
