@@ -85,6 +85,9 @@
     <Compile Include="Assets\Scripts\PropelObject.cs" />
     <Compile Include="Assets\Scripts\RopeBurn.cs" />
     <Compile Include="Assets\Scripts\SpriteTiler.cs" />
+    <Compile Include="Assets\Scripts\WheelPlatform1.cs" />
+    <Compile Include="Assets\Scripts\WheelPlatform2.cs" />
+    <Compile Include="Assets\Scripts\WheelRotate.cs" />
     <Compile Include="Assets\Scripts\WoodObject.cs" />
   </ItemGroup>
   <ItemGroup>
