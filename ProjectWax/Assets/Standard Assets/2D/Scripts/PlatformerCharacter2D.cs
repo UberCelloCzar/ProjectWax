@@ -35,15 +35,15 @@ namespace UnityStandardAssets._2D
         private float m_DefaultGravity = 1f; // Default grav scale of rigidbody
         private bool m_Burn; // Burn var with accessors
         private bool m_Dash; // Dash var with accessors
-        private bool m_PropelCollide = false; // Propel vars with accessors
-        private bool m_IsPropelling = false;
+        private string m_PropelCollide = ""; // Name of colliding propellable object
+        private string m_IsPropelling = ""; // Name of propelled object
         private bool m_KindleCollide = false; // Kindle var with accessor
         private bool m_KindleDash = false;
         public bool kindleFloat = false;
         public bool Burn { get { return m_Burn; } set { m_Burn = value; } }
         public bool Dash { get { return m_Dash; } set { m_Dash = value; } }
-        public bool PropelCollide { get { return m_PropelCollide; } set { m_PropelCollide = value; } }
-        public bool IsPropelling {  get { return m_IsPropelling; } }
+        public string PropelCollide { get { return m_PropelCollide; } set { m_PropelCollide = value; } }
+        public string IsPropelling {  get { return m_IsPropelling; } }
         public bool KindleCollide {  get { return m_KindleCollide; } set { m_KindleCollide = value; } }
         public bool KindleDash { get { return m_KindleDash; } set { m_KindleDash = value; } }
         public Vector2 Velocity {  get { return m_Rigidbody2D.velocity; } }
@@ -123,9 +123,9 @@ namespace UnityStandardAssets._2D
                     m_KindleDash = true;
                 }
 
-                if (m_PropelCollide && m_Dash)
+                if (m_PropelCollide != "" && m_Dash)
                 {
-                    m_IsPropelling = true;
+                    m_IsPropelling = m_PropelCollide;
                 }
 
                 if (!m_Dash)
@@ -139,7 +139,7 @@ namespace UnityStandardAssets._2D
                         m_Rigidbody2D.velocity = new Vector2(move * m_MaxSpeed, m_Rigidbody2D.velocity.y);
                     }
                 }
-                else if (m_IsPropelling)
+                else if (m_IsPropelling != "")
                 {
                     m_Rigidbody2D.gravityScale = 0f;
                     if (m_DashCycles == 0)
@@ -155,7 +155,7 @@ namespace UnityStandardAssets._2D
                     {
                         m_DashCycles = m_DashCooldown; // Reuse cycle counter for cooldown
                         m_Dash = false;
-                        m_IsPropelling = false;
+                        m_IsPropelling = "";
                         m_DashMove = 0f;
                         m_Rigidbody2D.gravityScale = m_DefaultGravity;
                     }

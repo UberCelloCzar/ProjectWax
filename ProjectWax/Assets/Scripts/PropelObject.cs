@@ -18,7 +18,7 @@ public class PropelObject : MonoBehaviour
     {
         if (other.gameObject.name == "Character") // When character hits this object, turn off gravity and start propulsion
         {
-            charScript.PropelCollide = true; // Welcome to my disgusting cross-script hack because I was too lazy to make my own platformer control script
+            charScript.PropelCollide = this.gameObject.name; // Welcome to my disgusting cross-script hack because I was too lazy to make my own platformer control script
             //Debug.Log("Propel me daddy");
         }
     }
@@ -27,14 +27,14 @@ public class PropelObject : MonoBehaviour
     {
         if (other.gameObject.name == "Character") // Turn everything off on exit
         {
-            charScript.PropelCollide = false;
+            charScript.PropelCollide = "";
             //Debug.Log("Stop daddy");
         }
     }
 	
 	// Update is called once per frame
 	void Update () {
-	    if (charScript.IsPropelling)
+	    if (charScript.IsPropelling == this.gameObject.name)
         {
             if (this.gameObject.layer == 0) this.gameObject.layer = 8;
             if (m_Rigidbody2D.gravityScale != 0f) m_Rigidbody2D.gravityScale = 0f;
