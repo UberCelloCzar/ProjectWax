@@ -49,6 +49,7 @@ namespace UnityStandardAssets._2D
         public Vector2 Velocity {  get { return m_Rigidbody2D.velocity; } }
         private static GameObject thisInstance;
 
+
         private void Awake()
         {
             // Setting up references.
@@ -282,12 +283,14 @@ namespace UnityStandardAssets._2D
             if (m_Burn)
             {
                 // Play burn animation
-                this.gameObject.GetComponent<SpriteRenderer>().color = Color.red; // Temporary placeholders for animation
+                this.gameObject.GetComponent<Animator>().SetInteger("state", 1);
+                //this.gameObject.GetComponent<SpriteRenderer>().color = Color.red; // Temporary placeholders for animation
             }
 
             if (!m_Burn && !m_Dash)
             {
                 this.gameObject.GetComponent<SpriteRenderer>().color = Color.white;
+                this.gameObject.GetComponent<Animator>().SetInteger("state", 0);
             }
         }
 

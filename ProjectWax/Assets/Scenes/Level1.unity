@@ -28140,6 +28140,22 @@ Prefab:
       propertyPath: m_DashSpeed
       value: 15
       objectReference: {fileID: 0}
+    - target: {fileID: 212000010433325856, guid: 376c355b807637c409d95ee39e2da89b,
+        type: 2}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: 21300000, guid: dee69dbee84db0c4b90ed8b1cbce2f9e,
+        type: 3}
+    - target: {fileID: 212000010433325856, guid: 376c355b807637c409d95ee39e2da89b,
+        type: 2}
+      propertyPath: m_FlipX
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 212000010433325856, guid: 376c355b807637c409d95ee39e2da89b,
+        type: 2}
+      propertyPath: m_FlipY
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 376c355b807637c409d95ee39e2da89b, type: 2}
   m_IsPrefabParent: 0
@@ -30631,6 +30647,28 @@ Prefab:
 Transform:
   m_PrefabParentObject: {fileID: 400004, guid: d024aaa09f4080d448d16f62d1a97b0b, type: 2}
   m_PrefabInternal: {fileID: 1122703183}
+--- !u!1 &2029664986 stripped
+GameObject:
+  m_PrefabParentObject: {fileID: 1000013549955258, guid: 376c355b807637c409d95ee39e2da89b,
+    type: 2}
+  m_PrefabInternal: {fileID: 1875463781}
+--- !u!95 &2029664992
+Animator:
+  serializedVersion: 3
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 2029664986}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: 82c5181b92709594ea7bb56c6ae007ff, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
 --- !u!1 &2032730767
 GameObject:
   m_ObjectHideFlags: 0
