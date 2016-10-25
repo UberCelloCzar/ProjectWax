@@ -31,7 +31,7 @@ public class FireSource : MonoBehaviour {
             if (floatCycles != 0 && player.KindleCollide == false) // reset nonzero floatcycles if not kindling
             {
                 floatCycles = 0;
-                Debug.Log("Float cycles reset");
+                //Debug.Log("Float cycles reset");
             }
             if (player.KindleCollide && floatCycles == Mathf.FloorToInt(floatTime / 10)) // Kill momentum once inside 
             {
@@ -57,19 +57,19 @@ public class FireSource : MonoBehaviour {
                 player.reactivateGravity();
                 player.kindleFloat = false;
                 //Debug.Log("gravity restoredddddd");
-                Debug.Log("Max reached cycles: " + floatCycles);
+                //Debug.Log("Max reached cycles: " + floatCycles);
             }
         }
         else
         {
             if (playerCollide == true)
             {
-                Debug.Log("Yooooo");
+                //Debug.Log("Yooooo");
                 if (player.Burn) // If yes, then burn this object
                 {
                     lit = true;
                     this.transform.GetComponent<SpriteRenderer>().color = Color.red;
-                    Debug.Log("Let's goooo");
+                    //Debug.Log("Let's goooo");
                     player.fullStop();
                     player.Dash = false;
                     player.KindleDash = false;
@@ -77,7 +77,7 @@ public class FireSource : MonoBehaviour {
                     player.KindleCollide = true; // Welcome to my disgusting cross-script hack because I was too lazy to make my own platformer control script
                     player.transform.position = this.transform.position;
                     //Debug.Log("It's lit");
-                    Debug.Log("Enter cycles: " + floatCycles);
+                    //Debug.Log("Enter cycles: " + floatCycles);
                 }
             }
         }
@@ -96,14 +96,14 @@ public class FireSource : MonoBehaviour {
                 player.KindleCollide = true; // Welcome to my disgusting cross-script hack because I was too lazy to make my own platformer control script
                 player.transform.position = this.transform.position;
                 //Debug.Log("It's lit");
-                Debug.Log("Enter cycles: " + floatCycles);
+                //Debug.Log("Enter cycles: " + floatCycles);
             }
             else // tell update that the character is colliding
             {
                 playerCollide = true;
             }
         }
-        else // check if player is burning
+        else
         {
             playerCollide = false;
         }
@@ -124,7 +124,7 @@ public class FireSource : MonoBehaviour {
                 player.kindleFloat = false;
                 floatCycles = 0;
                 //Debug.Log("Get snuffed");
-                Debug.Log("Exit cycles: " + floatCycles);
+                //Debug.Log("Exit cycles: " + floatCycles);
             }
         }
     }

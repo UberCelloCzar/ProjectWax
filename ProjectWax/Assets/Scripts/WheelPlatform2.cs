@@ -5,37 +5,52 @@ public class WheelPlatform2 : MonoBehaviour
 {
     [HideInInspector]
     GameObject spotToFollow;
+    GameObject steamGen1;
     int timeVar;
+    float initialX;
+    float initialY;
 
     // Use this for initialization
     void Start ()
     {
         // Establish point to follow
         spotToFollow = GameObject.FindGameObjectWithTag("WheelPlatSpot2");
+        steamGen1 = GameObject.FindGameObjectWithTag("SteamGen1");
         timeVar = 0;
+        initialX = spotToFollow.transform.position.x;
+        initialY = spotToFollow.transform.position.y;
     }
-	
-	// Update is called once per frame
-	void Update ()
+
+    // Update is called once per frame
+    void Update()
     {
         // Follow point on wheel
         this.transform.position = new Vector3(spotToFollow.transform.position.x, spotToFollow.transform.position.y, this.transform.position.z);
-        if (timeVar == 0) // rotate to show that that is what happens when a platform reaches that point
+
+        if (steamGen1.GetComponent<SteamGenActivate>().activated == true)
         {
-            transform.Rotate(0, 0, -90);
+            if (timeVar == 0) // rotate to show that that is what happens when a platform reaches that point
+            {
+                transform.Rotate(0, 0, -90);
+            }
+            if (timeVar == 100) // rotate back
+            {
+                transform.Rotate(0, 0, 90);
+            }
+            if (timeVar == 1300) // full rotation around // probably won't have it do the rotation. The wheel will most likely stop here
+            {
+                //transform.Rotate(0, 0, -90);
+            }
+            if (timeVar == 1400)
+            {
+                //transform.Rotate(0, 0, 90);
+            }
+            timeVar++;
         }
-        if (timeVar == 100) // rotate back
+        else // reset position, rotation and timeVar
         {
-            transform.Rotate(0, 0, 90);
+            timeVar = 0;
+            spotToFollow.transform.position = new Vector3(initialX, initialY, transform.position.z);
         }
-        if (timeVar == 1300) // full rotation around // probably won't have it do the rotation. The wheel will most likely stop here
-        {
-            transform.Rotate(0, 0, -90);
-        }
-        if (timeVar == 1400)
-        {
-            transform.Rotate(0, 0, 90);
-        }
-        timeVar++;
     }
 }

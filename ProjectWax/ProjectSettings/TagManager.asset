@@ -8,6 +8,11 @@ TagManager:
   - FireSourceTag
   - WheelPlatSpot1
   - WheelPlatSpot2
+  - SteamGen1
+  - SteamGen2
+  - SteamGen3
+  - SteamGen4
+  - SteamGen5
   layers:
   - Default
   - TransparentFX
