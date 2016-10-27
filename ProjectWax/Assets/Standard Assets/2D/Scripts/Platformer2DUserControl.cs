@@ -37,7 +37,7 @@ namespace UnityStandardAssets._2D
             }
             if (!m_Dash)
             {
-                m_Dash = CrossPlatformInputManager.GetButtonDown("Fire2"); // Get single press of dash
+                m_Dash = CrossPlatformInputManager.GetButton("Fire2"); // Get single press of dash
             }
 
             if (CrossPlatformInputManager.GetButtonDown("Horizontal") && CrossPlatformInputManager.GetAxisRaw("Horizontal") > 0) // D, this is still cross platform, just using key chars for clarity

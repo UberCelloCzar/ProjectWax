@@ -103,10 +103,6 @@ public class FireSource : MonoBehaviour {
                 playerCollide = true;
             }
         }
-        else
-        {
-            playerCollide = false;
-        }
     }
 
     void OnTriggerExit2D(Collider2D other)
@@ -126,6 +122,10 @@ public class FireSource : MonoBehaviour {
                 //Debug.Log("Get snuffed");
                 //Debug.Log("Exit cycles: " + floatCycles);
             }
+        }
+        else
+        {
+            playerCollide = false;
         }
     }
 }

@@ -18,6 +18,17 @@ public class RopeBurn : MonoBehaviour {
         }
     }
 
+    void OnTriggerStay2D(Collider2D other) // On hesitate
+    {
+        if (other.gameObject.name == "Character" && !isBurned) // Is it the player? (can be modified later to include other burning objects for chain reactions)
+        {
+            if (charScript.Burn) // If yes, then burn this object
+            {
+                isBurning = true;
+            }
+        }
+    }
+
     void Update()
     {
         if (isBurning && !isBurned)

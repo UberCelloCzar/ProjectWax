@@ -10,7 +10,6 @@ public class Checkpoint : MonoBehaviour {
     void Start()
     {
         levelManager = FindObjectOfType<LevelManager>(); // Get the level manager
-        DontDestroyOnLoad(this.gameObject);
     }
 
     // Update is called once per frame

@@ -13,6 +13,7 @@ public class LevelManager : MonoBehaviour {
     void Start () {
         player = GameObject.FindGameObjectWithTag("Player").GetComponent<UnityStandardAssets._2D.PlatformerCharacter2D>();
         DontDestroyOnLoad(this.gameObject);
+        DontDestroyOnLoad(GameObject.Find("Checkpoints"));
 
         if (thisInstance == null) // Don't destroy certain objects, then make sure any new instances loaded are destroyed
         {

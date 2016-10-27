@@ -83,6 +83,7 @@
     <Compile Include="Assets\Scripts\KillPlayer.cs" />
     <Compile Include="Assets\Scripts\LevelManager.cs" />
     <Compile Include="Assets\Scripts\PropelObject.cs" />
+    <Compile Include="Assets\Scripts\PropelTrigger.cs" />
     <Compile Include="Assets\Scripts\RopeBurn.cs" />
     <Compile Include="Assets\Scripts\SGLock.cs" />
     <Compile Include="Assets\Scripts\SpriteTiler.cs" />
