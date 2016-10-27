@@ -78,6 +78,7 @@
     <Compile Include="Assets\2DLightAsset\Scripts\Helpers\interface_touch2.cs" />
     <Compile Include="Assets\2DLightAsset\Scripts\rotate.cs" />
     <Compile Include="Assets\Rope 2D Editor\Scripts\Rope.cs" />
+    <Compile Include="Assets\Scripts\CameraShift.cs" />
     <Compile Include="Assets\Scripts\Checkpoint.cs" />
     <Compile Include="Assets\Scripts\FireSource.cs" />
     <Compile Include="Assets\Scripts\KillPlayer.cs" />

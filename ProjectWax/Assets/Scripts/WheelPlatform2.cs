@@ -9,6 +9,7 @@ public class WheelPlatform2 : MonoBehaviour
     int timeVar;
     float initialX;
     float initialY;
+    Quaternion initialRot;
 
     // Use this for initialization
     void Start ()
@@ -19,6 +20,7 @@ public class WheelPlatform2 : MonoBehaviour
         timeVar = 0;
         initialX = spotToFollow.transform.position.x;
         initialY = spotToFollow.transform.position.y;
+        initialRot = transform.rotation;
     }
 
     // Update is called once per frame
@@ -29,6 +31,7 @@ public class WheelPlatform2 : MonoBehaviour
 
         if (steamGen1.GetComponent<SteamGenActivate>().activated == true)
         {
+            /*
             if (timeVar == 0) // rotate to show that that is what happens when a platform reaches that point
             {
                 transform.Rotate(0, 0, -90);
@@ -45,12 +48,30 @@ public class WheelPlatform2 : MonoBehaviour
             {
                 //transform.Rotate(0, 0, 90);
             }
+            */
             timeVar++;
         }
         else // reset position, rotation and timeVar
         {
             timeVar = 0;
             spotToFollow.transform.position = new Vector3(initialX, initialY, transform.position.z);
+            transform.rotation = initialRot;
+        }
+    }
+
+    void OnTriggerEnter2D(Collider2D other)
+    {
+        if (steamGen1.GetComponent<SteamGenActivate>().activated == true && other.gameObject.tag == "PlatformTrigger") // When platform turn trigger hits this object
+        {
+            transform.Rotate(0, 0, 90);
+        }
+    }
+
+    void OnTriggerExit2D(Collider2D other)
+    {
+        if (other.gameObject.tag == "PlatformTrigger") // When platform turn trigger hits this object
+        {
+            transform.rotation = initialRot;
         }
     }
 }

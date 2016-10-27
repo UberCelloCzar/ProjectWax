@@ -13,6 +13,8 @@ TagManager:
   - SteamGen3
   - SteamGen4
   - SteamGen5
+  - PlatformTrigger
+  - CamFollowY
   layers:
   - Default
   - TransparentFX
