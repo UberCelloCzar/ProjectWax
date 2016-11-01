@@ -29,23 +29,24 @@ public class SteamGenActivate : MonoBehaviour
             {
                 burnTime++;
             }
-            if(burnTime >= ACTIVATE_TIME)
+            if (burnTime >= ACTIVATE_TIME)
             {
                 activated = true;
+                
                 if (poweredFor >= POWER_TIME) // if the generator has exceeded max power time..
                 {
                     activated = false;
                     burnTime = 0; // ...reset burn time
                     poweredFor = 0;
                     //Debug.Log("Power down.");
-                    this.transform.GetComponent<SpriteRenderer>().color = Color.blue;
+                    this.gameObject.GetComponent<Animator>().SetBool("running", false);
                 }
                 else // power for days // they call me Power Man // Will Burn for Coffee
                 {
                     //Debug.Log("I HAVE THE POWEEEEEER");
                     activated = true;
                     poweredFor++;
-                    this.transform.GetComponent<SpriteRenderer>().color = Color.green;
+                    this.gameObject.GetComponent<Animator>().SetBool("running", true);
                 }
             }
         }

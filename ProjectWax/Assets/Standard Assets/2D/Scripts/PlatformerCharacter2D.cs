@@ -190,7 +190,8 @@ namespace UnityStandardAssets._2D
                         m_Rigidbody2D.velocity = new Vector2(m_Rigidbody2D.velocity.x, 0);
                     }
                     //m_Anim.SetFloat("Speed", Mathf.Abs(m_DashMove)); // Sub in dash animation here
-                    this.gameObject.GetComponent<SpriteRenderer>().color = Color.blue;
+                    //this.gameObject.GetComponent<SpriteRenderer>().color = Color.blue;
+
 
                     if (m_DashCycles <= m_DashFloatFrames) // Antigrav on first frames
                     {
@@ -232,7 +233,8 @@ namespace UnityStandardAssets._2D
                 {
                     if (m_DashCycles == 0) m_DashMove = move; // Only take direction once
                     //m_Anim.SetFloat("Speed", Mathf.Abs(m_DashMove)); // Sub in dash animation here
-                    this.gameObject.GetComponent<SpriteRenderer>().color = Color.blue;
+                    this.gameObject.GetComponent<Animator>().SetInteger("state", 2);
+
                     m_Rigidbody2D.velocity = new Vector2(m_DashMove * m_DashSpeed, m_Rigidbody2D.velocity.y); // Move according to dash rules for end frames
 
                     if (!dash) // Reset if dash is over
@@ -247,7 +249,7 @@ namespace UnityStandardAssets._2D
                 {
                     if (m_DashCycles == 0) m_DashMove = move; // Only take direction once
                     //m_Anim.SetFloat("Speed", Mathf.Abs(m_DashMove)); // Sub in dash animation here
-                    this.gameObject.GetComponent<SpriteRenderer>().color = Color.blue;
+                    
 
                     if (m_DashCycles <= m_DashFloatFrames)
                     {
@@ -298,14 +300,21 @@ namespace UnityStandardAssets._2D
                 m_Rigidbody2D.AddForce(new Vector2(0f, m_ContinuedJumpForce)); // Continue the jump
                 m_JumpCycles++; // Increment counter
             }
+            if(m_KindleDash)
+            {
+                this.gameObject.GetComponent<Animator>().SetInteger("state", 2);
+            }
+            if(m_Dash)
+            {
+                this.gameObject.GetComponent<Animator>().SetInteger("state", 2);
+            }
 
-            if (m_Burn)
+            else if (m_Burn)
             {
                 // Play burn animation
                 this.gameObject.GetComponent<Animator>().SetInteger("state", 1);
                 //this.gameObject.GetComponent<SpriteRenderer>().color = Color.red; // Temporary placeholders for animation
             }
-            
 
             if (!m_Burn && !m_Dash)
             {
