@@ -5,11 +5,11 @@ public class SteamGenActivate : MonoBehaviour
 {
     private UnityStandardAssets._2D.PlatformerCharacter2D player;
     public bool activated;
-    private int burnTime;
+    private float burnTime;
     private bool playerCollide;
-    const int ACTIVATE_TIME = 60; // takes one second to burn to activate
-    public int POWER_TIME = 600; // stays active for 10 seconds
-    int poweredFor; // amount of time generator has been active
+    const int ACTIVATE_TIME = 1; // takes one second to burn to activate
+    public int POWER_TIME; // stays active for # of SECONDS specified in the inspector
+    float poweredFor; // amount of time generator has been active
 
     // Use this for initialization
     void Start()
@@ -27,7 +27,7 @@ public class SteamGenActivate : MonoBehaviour
         {
             if (player.Burn == true && burnTime < ACTIVATE_TIME)
             {
-                burnTime++;
+                burnTime += Time.deltaTime;
             }
             if (burnTime >= ACTIVATE_TIME)
             {
@@ -45,7 +45,8 @@ public class SteamGenActivate : MonoBehaviour
                 {
                     //Debug.Log("I HAVE THE POWEEEEEER");
                     activated = true;
-                    poweredFor++;
+                    poweredFor += Time.deltaTime;
+                    Debug.Log(poweredFor);
                     this.gameObject.GetComponent<Animator>().SetBool("running", true);
                 }
             }

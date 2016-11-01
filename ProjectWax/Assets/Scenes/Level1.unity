@@ -5201,7 +5201,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   activated: 0
-  POWER_TIME: 1400
+  POWER_TIME: 20
 --- !u!95 &214581558
 Animator:
   serializedVersion: 3
@@ -7692,7 +7692,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   activated: 0
-  POWER_TIME: 1800
+  POWER_TIME: 30
 --- !u!95 &297147168
 Animator:
   serializedVersion: 3
@@ -22865,7 +22865,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   activated: 0
-  POWER_TIME: 1800
+  POWER_TIME: 30
 --- !u!95 &886746721
 Animator:
   serializedVersion: 3
@@ -30548,7 +30548,7 @@ Transform:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1248385751}
-  m_LocalRotation: {x: -0, y: -0, z: 0.3748069, w: 0.9271029}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 3.7377489, y: 0.008658401, z: 0}
   m_LocalScale: {x: 0.17375933, y: 0.17375907, z: 0.17375903}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -30737,7 +30737,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   activated: 0
-  POWER_TIME: 1800
+  POWER_TIME: 30
 --- !u!95 &1264078234
 Animator:
   serializedVersion: 3
@@ -34353,10 +34353,10 @@ Transform:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1430676908}
-  m_LocalRotation: {x: -0, y: -0, z: 0.70525795, w: 0.7089508}
+  m_LocalRotation: {x: 0, y: 0, z: 0.7071068, w: 0.7071068}
   m_LocalPosition: {x: 0.464, y: -0.0023910333, z: 0}
   m_LocalScale: {x: 0.56727463, y: 0.26276642, z: 1}
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 89.71001}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 90}
   m_Children: []
   m_Father: {fileID: 1441934517}
   m_RootOrder: 2
@@ -43621,7 +43621,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   activated: 0
-  POWER_TIME: 1800
+  POWER_TIME: 30
 --- !u!95 &1773237032
 Animator:
   serializedVersion: 3
@@ -49996,7 +49996,7 @@ Transform:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 2032730767}
-  m_LocalRotation: {x: -0, y: -0, z: 0.3748069, w: 0.9271029}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: -3.690832, y: 0.005382516, z: 0}
   m_LocalScale: {x: 0.17375919, y: 0.17375922, z: 0.50646585}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
