@@ -26,7 +26,7 @@ public class PropelObject : MonoBehaviour
             if (m_Rigidbody2D.gravityScale != 0f) m_Rigidbody2D.gravityScale = 0f;
             //m_Rigidbody2D.velocity = charScript.Velocity;
             m_Rigidbody2D.mass = propelSpeed;
-            this.gameObject.GetComponent<SpriteRenderer>().color = Color.magenta; // Temporary placeholders for animation
+            //this.gameObject.GetComponent<SpriteRenderer>().color = Color.magenta; // Temporary placeholders for animation
         }
         else
         {

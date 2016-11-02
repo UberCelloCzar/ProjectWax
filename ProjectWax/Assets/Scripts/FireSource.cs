@@ -15,12 +15,14 @@ public class FireSource : MonoBehaviour {
         player = GameObject.FindGameObjectWithTag("Player").GetComponent<UnityStandardAssets._2D.PlatformerCharacter2D>();
         if (lit == true)
         {
-            this.transform.GetComponent<SpriteRenderer>().color = Color.red;
+            //this.transform.GetComponent<SpriteRenderer>().color = Color.red;
+            this.GetComponent<Animator>().SetBool("Lit", true);
         }
+        /*
         else
         {
             this.transform.GetComponent<SpriteRenderer>().color = Color.yellow;
-        }
+        }/**/
     }
 	
 	// Update is called once per frame
@@ -46,6 +48,7 @@ public class FireSource : MonoBehaviour {
                 player.kindleFloat = true;
                 player.fullStop();
                 player.deactivateGravity();
+                player.transform.rotation = Quaternion.identity;
                 //Vector3 forceDirection = this.transform.position - player.transform.position; // Pull player in
                 //player.AddImpulseForce(forceDirection.normalized * pullForce * Time.fixedDeltaTime);
                 floatCycles++;
@@ -68,7 +71,7 @@ public class FireSource : MonoBehaviour {
                 if (player.Burn) // If yes, then burn this object
                 {
                     lit = true;
-                    this.transform.GetComponent<SpriteRenderer>().color = Color.red;
+                    //this.transform.GetComponent<SpriteRenderer>().color = Color.red;
                     //Debug.Log("Let's goooo");
                     player.fullStop();
                     player.Dash = false;
@@ -76,6 +79,7 @@ public class FireSource : MonoBehaviour {
                     floatCycles = 0;
                     player.KindleCollide = true; // Welcome to my disgusting cross-script hack because I was too lazy to make my own platformer control script
                     player.transform.position = this.transform.position;
+                    this.GetComponent<Animator>().SetBool("Lit", true);
                     //Debug.Log("It's lit");
                     //Debug.Log("Enter cycles: " + floatCycles);
                 }

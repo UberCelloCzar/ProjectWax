@@ -148,7 +148,7 @@ namespace UnityStandardAssets._2D
                         m_DashMove = move; // Only take direction once
                     }
                     //m_Anim.SetFloat("Speed", Mathf.Abs(m_DashMove)); // Sub in propel animation here
-                    this.gameObject.GetComponent<SpriteRenderer>().color = Color.magenta;
+                    //this.gameObject.GetComponent<SpriteRenderer>().color = Color.magenta;
 
                     m_Rigidbody2D.velocity = new Vector2(m_DashMove * m_PropelSpeed, 0); // Move according to dash rules
 
@@ -167,6 +167,7 @@ namespace UnityStandardAssets._2D
                 }
                 else if (m_KindleDash)
                 {
+                    this.gameObject.GetComponent<Animator>().SetInteger("state", 2);
                     if (m_DashCycles == 0) // Dashmove in kindle: 4=left, 1=up, 2=right, 3=down, 0=no move
                     {
                         switch(latestKey)
@@ -200,21 +201,28 @@ namespace UnityStandardAssets._2D
                     else
                     {
                         m_Rigidbody2D.gravityScale = m_DefaultGravity;
+                        this.gameObject.transform.rotation = Quaternion.identity;
                     }
 
                     switch ((int)m_DashMove)
                     {
                         case 4:
                             m_Rigidbody2D.velocity = new Vector2(-1 * m_DashSpeed, m_Rigidbody2D.velocity.y);
+                            this.gameObject.transform.rotation = Quaternion.identity;
                             break;
                         case 1:
                             m_Rigidbody2D.velocity = new Vector2(0, 1 * m_DashSpeed);
+                            this.gameObject.transform.rotation = Quaternion.identity;
+                            this.gameObject.transform.Rotate(0, 0, 90);
                             break;
                         case 2:
                             m_Rigidbody2D.velocity = new Vector2(1 * m_DashSpeed, m_Rigidbody2D.velocity.y);
+                            this.gameObject.transform.rotation = Quaternion.identity;
                             break;
                         case 3:
                             m_Rigidbody2D.velocity = new Vector2(0, -1 * m_DashSpeed);
+                            this.gameObject.transform.rotation = Quaternion.identity;
+                            this.gameObject.transform.Rotate(0, 0, -90);
                             break;
                         default:
                             break;
@@ -226,6 +234,7 @@ namespace UnityStandardAssets._2D
                         m_Dash = false;
                         m_KindleDash = false;
                         m_DashMove = 0f;
+                        this.gameObject.transform.rotation = Quaternion.identity;
                     }
                     else m_DashCycles++; // Or keep going if it's not
                 }
@@ -300,10 +309,7 @@ namespace UnityStandardAssets._2D
                 m_Rigidbody2D.AddForce(new Vector2(0f, m_ContinuedJumpForce)); // Continue the jump
                 m_JumpCycles++; // Increment counter
             }
-            if(m_KindleDash)
-            {
-                this.gameObject.GetComponent<Animator>().SetInteger("state", 2);
-            }
+      
             if(m_Dash)
             {
                 this.gameObject.GetComponent<Animator>().SetInteger("state", 2);

@@ -2817,6 +2817,7 @@ GameObject:
   - 61: {fileID: 110566311}
   - 50: {fileID: 110566310}
   - 114: {fileID: 110566309}
+  - 95: {fileID: 110566313}
   m_Layer: 10
   m_Name: torchBoxTemp (20)
   m_TagString: Untagged
@@ -2914,6 +2915,23 @@ SpriteRenderer:
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
+--- !u!95 &110566313
+Animator:
+  serializedVersion: 3
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 110566307}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: 56c4b26279c81fb43b034b36510cce48, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
 --- !u!1 &114914498
 GameObject:
   m_ObjectHideFlags: 0
@@ -4889,6 +4907,7 @@ GameObject:
   - 61: {fileID: 201134072}
   - 50: {fileID: 201134071}
   - 114: {fileID: 201134070}
+  - 95: {fileID: 201134074}
   m_Layer: 10
   m_Name: torchBoxTemp (6)
   m_TagString: Untagged
@@ -4950,9 +4969,9 @@ BoxCollider2D:
   m_Material: {fileID: 0}
   m_IsTrigger: 1
   m_UsedByEffector: 0
-  m_Offset: {x: 0.02598794, y: -0.14386998}
+  m_Offset: {x: 0.02598794, y: -0.10108401}
   serializedVersion: 2
-  m_Size: {x: 1.7019207, y: 1.9723594}
+  m_Size: {x: 1.7019207, y: 0.9740207}
 --- !u!212 &201134073
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -4986,6 +5005,23 @@ SpriteRenderer:
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
+--- !u!95 &201134074
+Animator:
+  serializedVersion: 3
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 201134068}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: 56c4b26279c81fb43b034b36510cce48, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
 --- !u!1 &201419520
 GameObject:
   m_ObjectHideFlags: 0
@@ -5990,6 +6026,23 @@ SpriteRenderer:
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
+--- !u!95 &242006073
+Animator:
+  serializedVersion: 3
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 242006069}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: 66c09dcbb6ba11b43a9736b3c0a206e4, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
 --- !u!1 &242062982
 GameObject:
   m_ObjectHideFlags: 0
@@ -8829,6 +8882,23 @@ SpriteRenderer:
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
+--- !u!95 &321325789
+Animator:
+  serializedVersion: 3
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 321325785}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: 66c09dcbb6ba11b43a9736b3c0a206e4, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
 --- !u!1001 &323166329
 Prefab:
   m_ObjectHideFlags: 0
@@ -9147,6 +9217,7 @@ GameObject:
   - 61: {fileID: 332490342}
   - 50: {fileID: 332490341}
   - 114: {fileID: 332490340}
+  - 95: {fileID: 332490344}
   m_Layer: 10
   m_Name: torchBoxTemp (1)
   m_TagString: Untagged
@@ -9244,6 +9315,23 @@ SpriteRenderer:
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
+--- !u!95 &332490344
+Animator:
+  serializedVersion: 3
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 332490338}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: 56c4b26279c81fb43b034b36510cce48, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
 --- !u!1 &335306873
 GameObject:
   m_ObjectHideFlags: 0
@@ -9611,6 +9699,7 @@ GameObject:
   - 61: {fileID: 346013569}
   - 50: {fileID: 346013568}
   - 114: {fileID: 346013567}
+  - 95: {fileID: 346013571}
   m_Layer: 10
   m_Name: torchBoxTemp (2)
   m_TagString: Untagged
@@ -9708,6 +9797,23 @@ SpriteRenderer:
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
+--- !u!95 &346013571
+Animator:
+  serializedVersion: 3
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 346013565}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: 56c4b26279c81fb43b034b36510cce48, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
 --- !u!1 &355085321
 GameObject:
   m_ObjectHideFlags: 0
@@ -12242,6 +12348,7 @@ GameObject:
   - 61: {fileID: 440844687}
   - 50: {fileID: 440844686}
   - 114: {fileID: 440844685}
+  - 95: {fileID: 440844689}
   m_Layer: 10
   m_Name: torchBoxTemp (7)
   m_TagString: Untagged
@@ -12303,9 +12410,9 @@ BoxCollider2D:
   m_Material: {fileID: 0}
   m_IsTrigger: 1
   m_UsedByEffector: 0
-  m_Offset: {x: 0.02598794, y: -0.22607721}
+  m_Offset: {x: 0.02598794, y: -0.28312367}
   serializedVersion: 2
-  m_Size: {x: 1.3904017, y: 1.9723628}
+  m_Size: {x: 1.3904017, y: 1.2877868}
 --- !u!212 &440844688
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -12339,6 +12446,23 @@ SpriteRenderer:
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
+--- !u!95 &440844689
+Animator:
+  serializedVersion: 3
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 440844683}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: 56c4b26279c81fb43b034b36510cce48, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
 --- !u!1 &441687353
 GameObject:
   m_ObjectHideFlags: 0
@@ -16687,6 +16811,7 @@ GameObject:
   - 61: {fileID: 618015956}
   - 50: {fileID: 618015955}
   - 114: {fileID: 618015954}
+  - 95: {fileID: 618015958}
   m_Layer: 10
   m_Name: torchBoxTemp (13)
   m_TagString: Untagged
@@ -16784,6 +16909,23 @@ SpriteRenderer:
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
+--- !u!95 &618015958
+Animator:
+  serializedVersion: 3
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 618015952}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: 56c4b26279c81fb43b034b36510cce48, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
 --- !u!1 &618179491
 GameObject:
   m_ObjectHideFlags: 0
@@ -17971,6 +18113,7 @@ GameObject:
   - 61: {fileID: 673811836}
   - 50: {fileID: 673811835}
   - 114: {fileID: 673811834}
+  - 95: {fileID: 673811838}
   m_Layer: 10
   m_Name: torchBoxTemp (4)
   m_TagString: Untagged
@@ -18068,6 +18211,23 @@ SpriteRenderer:
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
+--- !u!95 &673811838
+Animator:
+  serializedVersion: 3
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 673811832}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: 56c4b26279c81fb43b034b36510cce48, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
 --- !u!1 &674048916
 GameObject:
   m_ObjectHideFlags: 0
@@ -21375,6 +21535,7 @@ GameObject:
   - 61: {fileID: 822601406}
   - 50: {fileID: 822601405}
   - 114: {fileID: 822601404}
+  - 95: {fileID: 822601408}
   m_Layer: 10
   m_Name: torchBoxTemp (15)
   m_TagString: Untagged
@@ -21472,6 +21633,23 @@ SpriteRenderer:
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
+--- !u!95 &822601408
+Animator:
+  serializedVersion: 3
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 822601402}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: 56c4b26279c81fb43b034b36510cce48, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
 --- !u!1 &830333636
 GameObject:
   m_ObjectHideFlags: 0
@@ -22615,6 +22793,7 @@ GameObject:
   - 61: {fileID: 876468567}
   - 50: {fileID: 876468566}
   - 114: {fileID: 876468565}
+  - 95: {fileID: 876468569}
   m_Layer: 10
   m_Name: torchBoxTemp (18)
   m_TagString: Untagged
@@ -22712,6 +22891,23 @@ SpriteRenderer:
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
+--- !u!95 &876468569
+Animator:
+  serializedVersion: 3
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 876468563}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: 56c4b26279c81fb43b034b36510cce48, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
 --- !u!1 &879453096
 GameObject:
   m_ObjectHideFlags: 0
@@ -26854,7 +27050,7 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
   m_SortingOrder: 3
-  m_Sprite: {fileID: 21300000, guid: 1b656be0554ee5348a047b11a8bd5f1b, type: 3}
+  m_Sprite: {fileID: 21300000, guid: fbb244d7fd7692f499d59899ade218e8, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -28458,6 +28654,7 @@ GameObject:
   - 61: {fileID: 1133809500}
   - 50: {fileID: 1133809499}
   - 114: {fileID: 1133809498}
+  - 95: {fileID: 1133809502}
   m_Layer: 10
   m_Name: torchBoxTemp (16)
   m_TagString: Untagged
@@ -28555,6 +28752,23 @@ SpriteRenderer:
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
+--- !u!95 &1133809502
+Animator:
+  serializedVersion: 3
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1133809496}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: 56c4b26279c81fb43b034b36510cce48, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
 --- !u!1 &1138723165
 GameObject:
   m_ObjectHideFlags: 0
@@ -28567,6 +28781,7 @@ GameObject:
   - 61: {fileID: 1138723169}
   - 50: {fileID: 1138723168}
   - 114: {fileID: 1138723167}
+  - 95: {fileID: 1138723171}
   m_Layer: 10
   m_Name: torchBoxTemp (12)
   m_TagString: Untagged
@@ -28664,6 +28879,23 @@ SpriteRenderer:
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
+--- !u!95 &1138723171
+Animator:
+  serializedVersion: 3
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1138723165}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: 56c4b26279c81fb43b034b36510cce48, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
 --- !u!1001 &1143070112
 Prefab:
   m_ObjectHideFlags: 0
@@ -31432,6 +31664,7 @@ GameObject:
   - 61: {fileID: 1306760622}
   - 50: {fileID: 1306760621}
   - 114: {fileID: 1306760620}
+  - 95: {fileID: 1306760624}
   m_Layer: 10
   m_Name: torchBoxTemp (11)
   m_TagString: Untagged
@@ -31529,6 +31762,23 @@ SpriteRenderer:
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
+--- !u!95 &1306760624
+Animator:
+  serializedVersion: 3
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1306760618}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: 56c4b26279c81fb43b034b36510cce48, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
 --- !u!1 &1310052392
 GameObject:
   m_ObjectHideFlags: 0
@@ -31945,6 +32195,7 @@ GameObject:
   - 61: {fileID: 1330646125}
   - 50: {fileID: 1330646124}
   - 114: {fileID: 1330646123}
+  - 95: {fileID: 1330646127}
   m_Layer: 10
   m_Name: torchBoxTemp (17)
   m_TagString: Untagged
@@ -32042,6 +32293,23 @@ SpriteRenderer:
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
+--- !u!95 &1330646127
+Animator:
+  serializedVersion: 3
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1330646121}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: 56c4b26279c81fb43b034b36510cce48, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
 --- !u!1 &1330935081
 GameObject:
   m_ObjectHideFlags: 0
@@ -34947,6 +35215,7 @@ GameObject:
   - 61: {fileID: 1464456343}
   - 50: {fileID: 1464456342}
   - 114: {fileID: 1464456341}
+  - 95: {fileID: 1464456345}
   m_Layer: 10
   m_Name: torchBoxTemp (22)
   m_TagString: Untagged
@@ -35044,6 +35313,23 @@ SpriteRenderer:
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
+--- !u!95 &1464456345
+Animator:
+  serializedVersion: 3
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1464456339}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: 56c4b26279c81fb43b034b36510cce48, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
 --- !u!1 &1465245767
 GameObject:
   m_ObjectHideFlags: 0
@@ -36988,6 +37274,23 @@ SpriteRenderer:
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
+--- !u!95 &1541645390
+Animator:
+  serializedVersion: 3
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1541645386}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: 66c09dcbb6ba11b43a9736b3c0a206e4, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
 --- !u!1 &1546025509
 GameObject:
   m_ObjectHideFlags: 0
@@ -37713,6 +38016,7 @@ GameObject:
   - 61: {fileID: 1582005872}
   - 50: {fileID: 1582005871}
   - 114: {fileID: 1582005870}
+  - 95: {fileID: 1582005874}
   m_Layer: 10
   m_Name: torchBoxTemp (8)
   m_TagString: Untagged
@@ -37810,6 +38114,23 @@ SpriteRenderer:
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
+--- !u!95 &1582005874
+Animator:
+  serializedVersion: 3
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1582005868}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: 56c4b26279c81fb43b034b36510cce48, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
 --- !u!1 &1583350991
 GameObject:
   m_ObjectHideFlags: 0
@@ -39315,6 +39636,7 @@ GameObject:
   - 61: {fileID: 1642169968}
   - 50: {fileID: 1642169967}
   - 114: {fileID: 1642169966}
+  - 95: {fileID: 1642169970}
   m_Layer: 10
   m_Name: torchBoxTemp (9)
   m_TagString: Untagged
@@ -39412,6 +39734,23 @@ SpriteRenderer:
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
+--- !u!95 &1642169970
+Animator:
+  serializedVersion: 3
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1642169964}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: 56c4b26279c81fb43b034b36510cce48, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
 --- !u!1001 &1642278753
 Prefab:
   m_ObjectHideFlags: 0
@@ -40363,6 +40702,7 @@ GameObject:
   - 61: {fileID: 1679786770}
   - 50: {fileID: 1679786769}
   - 114: {fileID: 1679786768}
+  - 95: {fileID: 1679786772}
   m_Layer: 10
   m_Name: torchBoxTemp (5)
   m_TagString: Untagged
@@ -40460,6 +40800,23 @@ SpriteRenderer:
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
+--- !u!95 &1679786772
+Animator:
+  serializedVersion: 3
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1679786766}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: 56c4b26279c81fb43b034b36510cce48, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
 --- !u!1 &1682021909
 GameObject:
   m_ObjectHideFlags: 0
@@ -40981,6 +41338,7 @@ GameObject:
   - 61: {fileID: 1699942468}
   - 50: {fileID: 1699942467}
   - 114: {fileID: 1699942466}
+  - 95: {fileID: 1699942470}
   m_Layer: 10
   m_Name: torchBoxTemp (3)
   m_TagString: Untagged
@@ -41078,6 +41436,23 @@ SpriteRenderer:
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
+--- !u!95 &1699942470
+Animator:
+  serializedVersion: 3
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1699942464}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: 56c4b26279c81fb43b034b36510cce48, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
 --- !u!1 &1702032850
 GameObject:
   m_ObjectHideFlags: 0
@@ -41450,6 +41825,7 @@ GameObject:
   - 61: {fileID: 1714584322}
   - 50: {fileID: 1714584321}
   - 114: {fileID: 1714584320}
+  - 95: {fileID: 1714584324}
   m_Layer: 10
   m_Name: torchBoxTemp (21)
   m_TagString: Untagged
@@ -41547,6 +41923,23 @@ SpriteRenderer:
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
+--- !u!95 &1714584324
+Animator:
+  serializedVersion: 3
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1714584318}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: 56c4b26279c81fb43b034b36510cce48, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
 --- !u!1 &1718024635
 GameObject:
   m_ObjectHideFlags: 0
@@ -44024,6 +44417,7 @@ GameObject:
   - 61: {fileID: 1806325388}
   - 50: {fileID: 1806325387}
   - 114: {fileID: 1806325386}
+  - 95: {fileID: 1806325390}
   m_Layer: 10
   m_Name: torchBoxTemp (14)
   m_TagString: Untagged
@@ -44121,6 +44515,23 @@ SpriteRenderer:
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
+--- !u!95 &1806325390
+Animator:
+  serializedVersion: 3
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1806325384}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: 56c4b26279c81fb43b034b36510cce48, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
 --- !u!1 &1816912502
 GameObject:
   m_ObjectHideFlags: 0
@@ -46133,6 +46544,10 @@ Prefab:
       propertyPath: m_SortingOrder
       value: 5
       objectReference: {fileID: 0}
+    - target: {fileID: 4000013102744084, guid: 376c355b807637c409d95ee39e2da89b, type: 2}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 376c355b807637c409d95ee39e2da89b, type: 2}
   m_IsPrefabParent: 0
@@ -47590,6 +48005,7 @@ GameObject:
   - 61: {fileID: 1959036044}
   - 50: {fileID: 1959036043}
   - 114: {fileID: 1959036042}
+  - 95: {fileID: 1959036046}
   m_Layer: 10
   m_Name: torchBoxTemp (10)
   m_TagString: Untagged
@@ -47687,6 +48103,23 @@ SpriteRenderer:
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
+--- !u!95 &1959036046
+Animator:
+  serializedVersion: 3
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1959036040}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: 56c4b26279c81fb43b034b36510cce48, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
 --- !u!1 &1962395837
 GameObject:
   m_ObjectHideFlags: 0
@@ -49047,6 +49480,7 @@ GameObject:
   - 61: {fileID: 2011071251}
   - 50: {fileID: 2011071250}
   - 114: {fileID: 2011071249}
+  - 95: {fileID: 2011071254}
   m_Layer: 10
   m_Name: torchBoxTemp
   m_TagString: Untagged
@@ -49144,6 +49578,23 @@ Transform:
   m_Children: []
   m_Father: {fileID: 1787642361}
   m_RootOrder: 0
+--- !u!95 &2011071254
+Animator:
+  serializedVersion: 3
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 2011071248}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: 56c4b26279c81fb43b034b36510cce48, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
 --- !u!1 &2011924755
 GameObject:
   m_ObjectHideFlags: 0
@@ -50597,6 +51048,7 @@ GameObject:
   - 61: {fileID: 2061565972}
   - 50: {fileID: 2061565971}
   - 114: {fileID: 2061565970}
+  - 95: {fileID: 2061565974}
   m_Layer: 10
   m_Name: torchBoxTemp (19)
   m_TagString: Untagged
@@ -50694,6 +51146,23 @@ SpriteRenderer:
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
+--- !u!95 &2061565974
+Animator:
+  serializedVersion: 3
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 2061565968}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: 56c4b26279c81fb43b034b36510cce48, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
 --- !u!1 &2073928892
 GameObject:
   m_ObjectHideFlags: 0
