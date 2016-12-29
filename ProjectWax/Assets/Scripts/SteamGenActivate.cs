@@ -46,7 +46,7 @@ public class SteamGenActivate : MonoBehaviour
                     //Debug.Log("I HAVE THE POWEEEEEER");
                     activated = true;
                     poweredFor += Time.deltaTime;
-                    //Debug.Log(poweredFor);
+                    Debug.Log(poweredFor);
                     this.gameObject.GetComponent<Animator>().SetBool("running", true);
                 }
             }
